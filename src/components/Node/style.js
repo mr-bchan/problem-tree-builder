@@ -22,7 +22,7 @@ export const LegendIdentifier = styled.div`
 
 export const Text = styled.div`
   font-size: 12px;
-  text-transform: capitalize;
+  text-transform: none;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -37,7 +37,7 @@ export const Controls = styled.div`
   padding: 5px 10px;
   position: absolute;
   margin-left: ${props => props.size || 200}px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;

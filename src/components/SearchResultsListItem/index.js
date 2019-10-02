@@ -22,26 +22,30 @@ const SearchResultsListItem = ({ item, onSelect, disabled, type, onRate }) => {
     >
       <Icon type={item.selected ? type : ''}>{!item.selected && <Add />}</Icon>
       <ListDetails>
-        <Header>
-          {item.isEdited && (
-            <Tag
-              content="Edited"
-              size="mini"
-              style={{
-                marginRight: '4px',
-                textTransform: 'uppercase',
-                color: 'white',
-                backgroundColor: 'gray',
-                borderRadius: '25px'
-              }}
-            ></Tag>
-          )}
-          {item.text}
-        </Header>
         <table>
           <tbody>
             <tr>
-              <td>
+              <td title={item.text} colSpan="2">
+                <Header>
+                  {item.isEdited && (
+                    <Tag
+                      content="Edited"
+                      size="mini"
+                      style={{
+                        marginRight: '4px',
+                        textTransform: 'uppercase',
+                        color: 'white',
+                        backgroundColor: 'gray',
+                        borderRadius: '25px'
+                      }}
+                    ></Tag>
+                  )}
+                  {item.text}
+                </Header>
+              </td>
+            </tr>
+            <tr>
+              <td title={item.link}>
                 <Label>Link</Label>
                 <Description style={{ textTransform: 'none' }}>
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -49,23 +53,23 @@ const SearchResultsListItem = ({ item, onSelect, disabled, type, onRate }) => {
                   </a>
                 </Description>
               </td>
-              <td>
+              <td title={item.country}>
                 <Label>Country</Label>
                 <Description>{item.country}</Description>
               </td>
             </tr>
             <tr>
-              <td>
+              <td title={item.source}>
                 <Label>Source</Label>
                 <Description>{item.source}</Description>
               </td>
-              <td>
+              <td title={item.section}>
                 <Label>Section</Label>
                 <Description>{item.section}</Description>
               </td>
             </tr>
             <tr>
-              <td>
+              <td title={item.title}>
                 <Label>Title</Label>
                 <Description>{item.title}</Description>
               </td>
@@ -80,6 +84,12 @@ const SearchResultsListItem = ({ item, onSelect, disabled, type, onRate }) => {
                     event.stopPropagation();
                   }}
                 />
+              </td>
+            </tr>
+            <tr>
+              <td title={item.pub_time}>
+                <Label>Date</Label>
+                <Description>{item.pub_time}</Description>
               </td>
             </tr>
           </tbody>

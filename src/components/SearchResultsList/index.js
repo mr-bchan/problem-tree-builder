@@ -40,7 +40,6 @@ const SearchResultsList = ({
                   key={index}
                   item={item}
                   onSelect={() => onSelect(item._listIndex)}
-                  disabled={selected && selected.length >= 3}
                   type={type}
                   onRate={onRate}
                 />
@@ -58,7 +57,6 @@ const SearchResultsList = ({
                     key={index}
                     item={item}
                     onSelect={() => onSelect(item._listIndex)}
-                    disabled={selected && selected.length >= 3}
                     type={type}
                     onRate={onRate}
                   />

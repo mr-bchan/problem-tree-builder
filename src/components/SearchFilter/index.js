@@ -12,7 +12,13 @@ import {
 
 const sortOptions = [
   {
-    key: 'Relevance',
+    key: 'Sources',
+    text: 'Sources',
+    value: 'Sources'
+  },
+
+  {
+    key: '',
     text: 'Relevance',
     value: 'Relevance'
   },

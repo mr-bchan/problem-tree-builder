@@ -65,7 +65,7 @@ export const Icon = styled.div`
 
 export const Label = styled.div`
   font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 8px;
   color: #969696;
   width: 35px;
@@ -99,7 +99,7 @@ export const Header = styled.div`
   -webkit-line-clamp: 2;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  text-transform: capitalize;
+  text-transform: none;
 `;
 
 export const ListColumn = styled.div`

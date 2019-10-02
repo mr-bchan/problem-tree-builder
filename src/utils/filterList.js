@@ -5,6 +5,10 @@ const filterList = (selections, items) => {
     newItems = clonedItems.sort(function(a, b) {
       return b.score - a.score;
     });
+  } else if (selections.sortBy === 'Sources') {
+    newItems = clonedItems.sort(function(a, b) {
+      return a.source_id - b.source_id;
+    });
   } else if (selections.sortBy === 'Newest') {
     newItems = clonedItems.sort(function(a, b) {
       return +new Date(b.pub_time) - +new Date(a.pub_time);

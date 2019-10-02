@@ -3,7 +3,7 @@ export default {
     keyword: '',
     view: 'list',
     activeType: 'problem',
-    sortBy: 'Relevance',
+    sortBy: 'Sources',
     filterBy: [],
     filterSource: [],
     filterCountry: [],

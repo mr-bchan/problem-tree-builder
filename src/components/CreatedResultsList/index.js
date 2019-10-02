@@ -14,7 +14,6 @@ const CreatedResultsList = ({ items, onSelect, selected, type }) => {
               key={index}
               item={item}
               onSelect={() => onSelect(item._listIndex)}
-              disabled={selected && selected.length >= 3}
               type={type}
               onRate={() => {}}
             />

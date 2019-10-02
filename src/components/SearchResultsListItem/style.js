@@ -65,7 +65,7 @@ export const Icon = styled.div`
 
 export const Label = styled.div`
   font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   font-size: 8px;
   color: #969696;
   width: 30%;
@@ -80,7 +80,7 @@ export const Description = styled.div`
   font-size: 10px;
   white-space: nowrap;
   max-width: 125px;
-  text-transform: capitalize;
+  text-transform: none;
 
   a {
     color: #005eba !important;
@@ -90,16 +90,16 @@ export const Description = styled.div`
 `;
 
 export const Header = styled.div`
+  padding-top: 5px;
   display: -webkit-box;
-  max-height: 3.2rem;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  -webkit-line-clamp: 2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  text-transform: capitalize;
+  -webkit-line-clamp: 1;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  text-transform: none;
 `;
 
 export const ListColumn = styled.div`

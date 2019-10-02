@@ -75,6 +75,11 @@ const Tile = ({ item, onSelect, disabled, type, onRate }) => (
               }}
             />
           </ItemDetailWrapper>
+
+          <ItemDetailWrapper>
+            <Label>Date</Label>
+            <Description>{item.pub_time}</Description>
+          </ItemDetailWrapper>
         </div>
 
         <Indicator>
