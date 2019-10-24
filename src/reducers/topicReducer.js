@@ -6,6 +6,12 @@ import initialState from './initialState';
 
 export default function topicReducer(state = initialState.topic, action) {
   switch (action.type) {
+    case types.RESET_SEARCH_FILTERS:
+      return Object.assign({}, state, {
+        filterSource: ['All'],
+        filterSourceId: []
+      });
+
     case types.SET_FETCHING:
       return Object.assign({}, state, { isFetching: true });
 
@@ -247,8 +253,11 @@ export default function topicReducer(state = initialState.topic, action) {
           'SSA',
           'CP',
           'CPS',
-          'COBP'
+          'COBP',
+          'PCR'
         ],
+
+        filterSourceId: [],
         filterCountry: ['All', 'China, PR', 'Mongolia']
       };
       const obj = {};

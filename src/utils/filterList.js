@@ -38,7 +38,8 @@ const filterList = (selections, items) => {
         (selections.filterSource.includes('SSA') && item.source === 'ssa') ||
         (selections.filterSource.includes('CP') && item.source === 'cp') ||
         (selections.filterSource.includes('CPS') && item.source === 'cps') ||
-        (selections.filterSource.includes('COBP') && item.source === 'cobp')
+        (selections.filterSource.includes('COBP') && item.source === 'cobp') ||
+        (selections.filterSource.includes('PCR') && item.source === 'pcr')
     )
     .filter(
       item =>

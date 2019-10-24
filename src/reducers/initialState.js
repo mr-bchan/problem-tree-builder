@@ -6,6 +6,7 @@ export default {
     sortBy: 'Sources',
     filterBy: [],
     filterSource: [],
+    filterSourceId: [],
     filterCountry: [],
     problem: {},
     causes: [],

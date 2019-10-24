@@ -4,15 +4,15 @@ const getOptions = data => {
   return {
     method: 'POST',
     headers: {
-      Authorization: 'Basic bm1fZGVtbzpkZW1vMTIzNA==',
+      Authorization: 'Basic bm1kZXY6bm1kZXY=',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ data: { ...data } })
   };
 };
 
-export const getProblems = async (text, type) => {
-  const options = getOptions({ text, type });
+export const getProblems = async (text, type, sources = []) => {
+  const options = getOptions({ text, type, sources });
 
   try {
     let response = await fetch(`${keys.baseUrl}/get_problems`, options);

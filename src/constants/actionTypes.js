@@ -9,6 +9,7 @@ export const SET_SUGGESTIONS = 'SET_SUGGESTIONS';
 /**
  * Problems action types
  */
+export const RESET_SEARCH_FILTERS = 'RESET_SEARCH_FILTERS';
 export const GET_PROBLEMS = 'GET_PROBLEMS';
 export const SET_PROBLEMS = 'SET_PROBLEMS';
 export const CLEAR_PROBLEM_SELECTION = 'CLEAR_PROBLEM_SELECTION';

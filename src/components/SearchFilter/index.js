@@ -51,42 +51,56 @@ const sourceOptions = [
   {
     key: 'All',
     text: 'All',
-    value: 'All'
+    value: 'All',
+    source_id: 'All'
   },
   {
     key: 'Xinhua',
     text: 'Xinhua',
-    value: 'Xinhua'
+    value: 'Xinhua',
+    source_id: 'xinhuanet.com'
   },
   {
     key: 'Worldbank',
     text: 'Worldbank',
-    value: 'Worldbank'
+    value: 'Worldbank',
+    source_id: 'wold_bank_news'
   },
   {
     key: 'RRP',
     text: 'RRP',
-    value: 'RRP'
+    value: 'RRP',
+    source_id: 'rrp'
   },
   {
     key: 'SSA',
     text: 'SSA',
-    value: 'SSA'
+    value: 'SSA',
+    source_id: 'ssa'
   },
   {
     key: 'CP',
     text: 'CP',
-    value: 'CP'
+    value: 'CP',
+    source_id: 'cp'
   },
   {
     key: 'CPS',
     text: 'CPS',
-    value: 'CPS'
+    value: 'CPS',
+    source_id: 'cps'
   },
   {
     key: 'COBP',
     text: 'COBP',
-    value: 'COBP'
+    value: 'COBP',
+    source_id: 'cobp'
+  },
+  {
+    key: 'PCR',
+    text: 'PCR',
+    value: 'PCR',
+    source_id: 'pcr'
   }
 ];
 
@@ -126,6 +140,7 @@ class SearchFilter extends Component {
   render() {
     const {
       onSelectFilter,
+      onSelectFilterUpdate,
       sortBy,
       filterBy,
       filterSource,
@@ -168,7 +183,11 @@ class SearchFilter extends Component {
           {sourceOptions.map(option => (
             <DropdownItem
               key={option.value}
-              onClick={() => onSelectFilter(option.value, 'filterSource')}
+              onClick={() => {
+                onSelectFilter(option.value, 'filterSource');
+                onSelectFilter(option.source_id, 'filterSourceId');
+                onSelectFilterUpdate();
+              }}
             >
               <CheckBox selected={filterSource.includes(option.value)}>
                 <Check />
@@ -197,7 +216,8 @@ class SearchFilter extends Component {
 SearchFilter.defaultProps = {
   filterBy: [],
   filterSource: [],
-  filterCountry: []
+  filterCountry: [],
+  filterSourceId: []
 };
 
 export default SearchFilter;

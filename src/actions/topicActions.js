@@ -1,5 +1,6 @@
 import * as types from 'constants/actionTypes';
 import { getProblems, sendUserScore, addUserInput, editProblem } from 'api/ptg';
+import { getState } from '../index';
 
 export const setTopic = payload => {
   return dispatch => {
@@ -13,9 +14,10 @@ export const searchOptions = (keyword, searchType) => {
     effect: types.SET_EFFECTS
   };
 
+  const sources = getState().topic.filterSourceId;
   return dispatch => {
     dispatch({ type: types.SET_FETCHING });
-    return getProblems(keyword, searchType)
+    return getProblems(keyword, searchType, sources)
       .then(result => {
         dispatch({
           type: SEARCH_TYPES[searchType],
@@ -100,10 +102,11 @@ export const searchSubOptions = (keyword, searchType, idx, shouldFetch) => {
     effect: types.SET_SUB_EFFECTS
   };
 
+  const sources = getState().topic.filterSourceId;
   return dispatch => {
     if (shouldFetch) {
       dispatch({ type: types.SET_FETCHING });
-      return getProblems(keyword, searchType)
+      return getProblems(keyword, searchType, sources)
         .then(result => {
           dispatch({
             type: SEARCH_TYPES[searchType],
@@ -113,6 +116,32 @@ export const searchSubOptions = (keyword, searchType, idx, shouldFetch) => {
         })
         .catch(err => console.error(`Sub ${searchType} fetch error: `, err));
     }
+  };
+};
+
+export const updateFilteredList = () => {
+  const sources = getState().topic.filterSourceId;
+  const keyword = getState().topic.keyword;
+  const searchType = getState().topic.activeType;
+
+  const SEARCH_TYPES = {
+    cause: types.SET_CAUSES,
+    effect: types.SET_EFFECTS,
+    problem: types.SET_PROBLEMS,
+    'sub-cause': types.ADD_SUB_CAUSE,
+    'sub-effect': types.ADD_SUB_EFFECT
+  };
+
+  return dispatch => {
+    dispatch({ type: types.SET_FETCHING });
+    return getProblems(keyword, searchType, sources)
+      .then(result => {
+        dispatch({
+          type: SEARCH_TYPES[searchType],
+          payload: result
+        });
+      })
+      .catch(err => console.error(`Options ${searchType} fetch error: `, err));
   };
 };
 

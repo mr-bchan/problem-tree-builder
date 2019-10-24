@@ -3,7 +3,7 @@ import { navigate } from '@reach/router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { searchProblems } from 'actions/problemActions';
+import { searchProblems, resetSearchFilters } from 'actions/problemActions';
 import { retrieveSuggestions } from 'actions/suggestionActions';
 import SearchBar from 'components/SearchBar';
 
@@ -39,6 +39,7 @@ class Home extends Component {
    */
   handleSearch = () => {
     const { keyword } = this.state;
+    this.props.resetSearchFilters();
     this.props.searchProblems(keyword);
     navigate('/compose');
   };
@@ -78,8 +79,6 @@ class Home extends Component {
               keyword={keyword}
             />
           </Center>
-
-          <Link>Help</Link>
         </Container>
       </Wrapper>
     );
@@ -87,7 +86,10 @@ class Home extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ searchProblems, retrieveSuggestions }, dispatch);
+  bindActionCreators(
+    { searchProblems, resetSearchFilters, retrieveSuggestions },
+    dispatch
+  );
 
 const mapStateToProps = state => state;
 

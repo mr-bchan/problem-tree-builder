@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { setFilter, clear, switchView } from 'actions/topicActions';
+import {
+  setFilter,
+  clear,
+  switchView,
+  updateFilteredList
+} from 'actions/topicActions';
 import SearchFilter from '../SearchFilter';
 import { Wrapper, Label, Menu, Button } from './style';
 
@@ -12,7 +17,13 @@ class SearchResultsListMenu extends Component {
   };
 
   render() {
-    const { selected, length, setFilter, topic } = this.props;
+    const {
+      selected,
+      length,
+      setFilter,
+      topic,
+      updateFilteredList
+    } = this.props;
     return (
       <Wrapper>
         <Label>
@@ -25,6 +36,7 @@ class SearchResultsListMenu extends Component {
         <Menu>
           <SearchFilter
             onSelectFilter={setFilter}
+            onSelectFilterUpdate={updateFilteredList}
             sortBy={topic.sortBy}
             filterBy={topic.filterBy}
             filterSource={topic.filterSource}
@@ -52,7 +64,8 @@ const mapDispatchToProps = dispatch =>
     {
       setFilter,
       clear,
-      switchView
+      switchView,
+      updateFilteredList
     },
     dispatch
   );

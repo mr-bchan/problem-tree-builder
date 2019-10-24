@@ -36,6 +36,7 @@ class GenerateTree extends Component {
           </Button>
         </Controls>
         <Controls right>
+          {/*
           <Button fluid>
             DMF (.xslx file)
             <FileCopy />
@@ -48,6 +49,8 @@ class GenerateTree extends Component {
             Print Tree
             <Print />
           </Button>
+        */}
+
           <Button fluid onClick={this.printDocument}>
             Export File
             <ChevronRight />

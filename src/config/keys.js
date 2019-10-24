@@ -1,3 +1,3 @@
 export default {
-  baseUrl: 'https://serverless-proxy-api.rockysantiago.now.sh/api'
+  baseUrl: 'http://localhost:5001'
 };

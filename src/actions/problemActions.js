@@ -1,5 +1,12 @@
 import { getProblems, addUserInput, editProblem } from 'api/ptg';
 import * as types from 'constants/actionTypes';
+import { getState } from '../index';
+
+export const resetSearchFilters = () => {
+  return dispatch => {
+    dispatch({ type: types.RESET_SEARCH_FILTERS });
+  };
+};
 
 export const searchProblems = keyword => {
   return dispatch => {
@@ -17,7 +24,8 @@ export const searchProblems = keyword => {
       }
     });
 
-    return getProblems(keyword, 'problem')
+    const sources = getState().topic.filterSourceId;
+    return getProblems(keyword, 'problem', sources)
       .then(payload => {
         dispatch({
           type: types.SET_PROBLEMS,
